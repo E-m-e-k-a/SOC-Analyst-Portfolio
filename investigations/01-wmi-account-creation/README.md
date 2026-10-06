@@ -15,11 +15,12 @@ The investigation began by searching for the creation of new user accounts acros
 **Findings:** Exactly 1 event found. A new account was created for `Alberto` on host `Micheal.Beaven` with the following suspicious attributes:
 *   `New UAC Value`: `0x15` (Normal Account, Password Not Required)
 *   `Password Last Set`: `<never>`
-![Event 4720](event_4720.png)
-![Target Username](target_username.png)
+![Event 4720](https://raw.githubusercontent.com/E-m-e-ka/SOC-Analyst-Portfolio/main/investigations/01-wmi-account-creation/event_4720.png)
+![Target Username](https://raw.githubusercontent.com/E-m-e-ka/SOC-Analyst-Portfolio/main/investigations/01-wmi-account-creation/target_username.png)
+
 
 ### 2. Root Cause Analysis via Sysmon (Event ID 1)
-![Sysmon Event 1](sysmon_event_1.png)
+![Sysmon Event 1](https://raw.githubusercontent.com/E-m-e-ka/SOC-Analyst-Portfolio/main/investigations/01-wmi-account-creation/sysmon_event_1.png)
 To determine *how* the account was created, the investigation pivoted to Sysmon process creation logs.
 **Query:** `index=main EventID=1 Alberto`
 **Findings:** 4 events returned. The `CommandLine` field revealed the exact attack vector:
